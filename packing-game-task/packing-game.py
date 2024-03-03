@@ -1,3 +1,5 @@
+### good idea to seperate the items def from the bag logic
+
 from Item import *
 
 class Bag():
@@ -15,7 +17,8 @@ class Bag():
             i += 1
             res = res + f"{i})\n" + str(item) + "\n"
         return f"items: \n{res}\n"
-         
+
+    ### good naming convenstions
     def can_add(self,item):
         if self.current_items == self.max_items \
         or item.weight + self.current_weight > self.max_weight or self.is_in_the_bag(item):
@@ -42,7 +45,7 @@ class Bag():
             print("item was deleted successfully.")
         else:
             print("the item is not in the bag.")
-
+### good idea!
 all_items = [UniversalCharger(), Passport(), Sunglasses(), Sneakers(), Smartphone(),
  Laptop(), Smartwatch(), Compass()]
 
@@ -54,6 +57,8 @@ def print_all_items():
 
 player_bag = Bag()
 
+### better to add functions to list
+### better to insure item num - what if its bigger than len all items?
 while True:
     print("your bag:\n", player_bag)
     if input("do you want to edit your bag? yes/no?") == "yes":
