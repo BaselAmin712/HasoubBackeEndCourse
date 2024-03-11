@@ -28,3 +28,10 @@ import copy
 # print(new_list2(my_ls))
 # lss[0].append(6)
 # print(lss)
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0,20,100)
+plt.plot(x, np.sign(x))
+plt.show()
