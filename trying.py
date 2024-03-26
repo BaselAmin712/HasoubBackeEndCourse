@@ -29,9 +29,63 @@ import copy
 # lss[0].append(6)
 # print(lss)
 
-import matplotlib.pyplot as plt
-import numpy as np
+# import matplotlib.pyplot as plt
+# import numpy as np
 
-x = np.linspace(0,20,100)
-plt.plot(x, np.sign(x))
-plt.show()
+# x = np.linspace(0,20,100)
+# plt.plot(x, np.sign(x))
+# plt.show()
+
+import time
+
+def first_element(lst):
+    return lst[0]
+
+my_list = [1, 2, 3, 4, 5]
+print(first_element(my_list))
+
+def find_max(lst):
+    max_num = lst[0]
+    for num in lst:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+my_list = [3, 7, 2, 9, 5]
+print(find_max(my_list))  # Output: 9
+
+
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+
+my_list = [2, 3, 5, 7, 9, 11, 13]
+print(binary_search(my_list, 9)) 
+
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+start = time.time()
+print(fibonacci(5))
+end = time.time()
+
+print(1000 * (end - start))
+
+start = time.time()
+print(fibonacci(50))
+end = time.time()
+
+print(1000 * (end - start))
