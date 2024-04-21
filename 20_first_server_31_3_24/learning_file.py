@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    returnt {"Data": "Test"}
+    return {"Data": "Test"}

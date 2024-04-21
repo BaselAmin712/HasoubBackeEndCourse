@@ -1,6 +1,6 @@
 # div_by_3 = [x for x in range(0,100) if x % 3 == 0]
 # print(div_by_3)
-import copy
+# import copy
 
 
 # my_ls = [[1],2,3]
@@ -36,56 +36,80 @@ import copy
 # plt.plot(x, np.sign(x))
 # plt.show()
 
-import time
+# import time
 
-def first_element(lst):
-    return lst[0]
+# def first_element(lst):
+#     return lst[0]
 
-my_list = [1, 2, 3, 4, 5]
-print(first_element(my_list))
+# my_list = [1, 2, 3, 4, 5]
+# print(first_element(my_list))
 
-def find_max(lst):
-    max_num = lst[0]
-    for num in lst:
-        if num > max_num:
-            max_num = num
-    return max_num
+# def find_max(lst):
+#     max_num = lst[0]
+#     for num in lst:
+#         if num > max_num:
+#             max_num = num
+#     return max_num
 
-my_list = [3, 7, 2, 9, 5]
-print(find_max(my_list))  # Output: 9
-
-
-def binary_search(arr, target):
-    low = 0
-    high = len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-
-my_list = [2, 3, 5, 7, 9, 11, 13]
-print(binary_search(my_list, 9)) 
+# my_list = [3, 7, 2, 9, 5]
+# print(find_max(my_list))  # Output: 9
 
 
-def fibonacci(n):
-    if n <= 1:
-        return n
-    else:
-        return fibonacci(n-1) + fibonacci(n-2)
+# def binary_search(arr, target):
+#     low = 0
+#     high = len(arr) - 1
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if arr[mid] == target:
+#             return mid
+#         elif arr[mid] < target:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+#     return -1
 
-start = time.time()
-print(fibonacci(5))
-end = time.time()
+# my_list = [2, 3, 5, 7, 9, 11, 13]
+# print(binary_search(my_list, 9)) 
 
-print(1000 * (end - start))
 
-start = time.time()
-print(fibonacci(50))
-end = time.time()
+# def fibonacci(n):
+#     if n <= 1:
+#         return n
+#     else:
+#         return fibonacci(n-1) + fibonacci(n-2)
 
-print(1000 * (end - start))
+# start = time.time()
+# print(fibonacci(5))
+# end = time.time()
+
+# print(1000 * (end - start))
+
+# start = time.time()
+# print(fibonacci(50))
+# end = time.time()
+
+# print(1000 * (end - start))
+
+def wrapper_check_int(fn):
+    def wrapper(*args,**kwargs):
+        try:
+            fn(*args,**kwargs)
+        except Exception as e:
+            print(e)
+    return wrapper
+
+@wrapper_check_int
+def multiply(num1, num2):
+    print(f'The multiply result is: {num1 * num2}')
+    
+@wrapper_check_int
+def divide(num1, num2):
+    print(f'The divide result is: {num1 / num2}')
+
+multiply(5, 9)
+
+multiply({}, 7)
+
+divide(10, 2)
+
+divide("", 2)
