@@ -90,26 +90,42 @@
 
 # print(1000 * (end - start))
 
-def wrapper_check_int(fn):
-    def wrapper(*args,**kwargs):
-        try:
-            fn(*args,**kwargs)
-        except Exception as e:
-            print(e)
-    return wrapper
+# def wrapper_check_int(fn):
+#     def wrapper(*args,**kwargs):
+#         try:
+#             fn(*args,**kwargs)
+#         except Exception as e:
+#             print(e)
+#     return wrapper
 
-@wrapper_check_int
-def multiply(num1, num2):
-    print(f'The multiply result is: {num1 * num2}')
+# @wrapper_check_int
+# def multiply(num1, num2):
+#     print(f'The multiply result is: {num1 * num2}')
     
-@wrapper_check_int
-def divide(num1, num2):
-    print(f'The divide result is: {num1 / num2}')
+# @wrapper_check_int
+# def divide(num1, num2):
+#     print(f'The divide result is: {num1 / num2}')
 
-multiply(5, 9)
+# multiply(5, 9)
 
-multiply({}, 7)
+# multiply({}, 7)
 
-divide(10, 2)
+# divide(10, 2)
 
-divide("", 2)
+# divide("", 2)
+
+import bcrypt 
+
+# example password 
+password = 'password123'
+
+# converting password to array of bytes 
+bytes = password.encode('utf-8') 
+
+# generating the salt 
+salt = bcrypt.gensalt() 
+
+# Hashing the password 
+hash = bcrypt.hashpw(bytes, salt) 
+
+print(hash)
